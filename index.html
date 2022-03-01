@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+	<html lang="ru">
+		<head>
+			<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+					<title>Простой калькулятор.</title>
+		</head>
+		<body>
+			<input id="numberone" />
+			<div id="operator_btns">
+				<button id="num1" class="operator" onclick="choice='+'"> + </button>
+				<button id="num2" class="operator" onclick="choice='-'"> - </button>
+				<button id="num3" class="operator" onclick="choice='/'"> : </button>
+				<button id="num4" class="operator" onclick="choice='*'"> * </button>
+			</div>
+			<input id="numbertwo" />
+		
+		<button onclick="result()">Решить</button>
+		
+		<p id="res"></p>
+		
+		<script>
+var choice; /* выбор, какую кнопку он нажал */
+function result () {
+	var result;
+	var numb1 = Number(document.getElementById('numberone').value);
+	var numb2 = Number(document.getElementById('numbertwo').value);
+	if(typeof numb1 || numb2 != "number") return alert("Error.");
+	switch(choice) {
+	case '+':
+	result = numb1 + numb2;
+    break;
+	case '-':
+	
+	result = numb1 - numb2;
+	break;
+	case '/':
+	try {
+	result = numb1 / numb2;
+	} catch(e) {
+		result = "∞";
+	}
+	break;
+	case '*':
+	result = numb1 * numb2;
+	break;
+	default:
+	result = "не выбрано";
+	}
+	
+	var res = document.getElementById('res').innerHTML = result;
+}
+</script>
+		</body>
+</html>
